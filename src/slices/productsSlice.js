@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import helper from "../components/Pages/helper";
 // Async thunk for fetching products
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
@@ -12,7 +11,7 @@ export const fetchProducts = createAsyncThunk(
     rating = 0,
   }) => {
     // Construct the URL based on provided parameters
-    let link = `${helper}/api/v1/products?keyword=${keyword}&page=${currentpage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${rating}`;
+    let link = `/api/v1/products?keyword=${keyword}&page=${currentpage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${rating}`;
     if (category) {
       link += `&category=${category}`;
     }
