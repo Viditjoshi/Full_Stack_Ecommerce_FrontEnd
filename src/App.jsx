@@ -66,7 +66,7 @@ const App = () => {
     getStripeApiKey();
   }, []);
 
-  window.addEventListener("contextmenu", (e) => e.preventDefault());
+  // window.addEventListener("contextmenu", (e) => e.preventDefault());
 
   return (
     <div className='bg-gradient-to-r from-custom-dark-teal to-custom-deep-green'>
