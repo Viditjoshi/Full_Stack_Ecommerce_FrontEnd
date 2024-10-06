@@ -46,7 +46,7 @@ const App = () => {
 
   async function getStripeApiKey() {
     try {
-      const { data } = await axios.get("/api/v1/stripeapikey");
+      const { data } = await axios.get("https://ecommerce-jewellery-site-backend.onrender.com/api/v1/stripeapikey");
       setStripeApiKey(data.stripeApiKey);
     } catch (error) {
       console.error("Error fetching Stripe API key:", error);
