@@ -11,7 +11,11 @@ export const fetchProducts = createAsyncThunk(
     rating = 0,
   }) => {
     // Construct the URL based on provided parameters
-    let link = `/api/v1/products?keyword=${keyword}&page=${currentpage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${rating}`;
+    let link = `${
+      import.meta.env.VITE_API_URL
+    }/api/v1/products?keyword=${keyword}&page=${currentpage}&price[gte]=${
+      price[0]
+    }&price[lte]=${price[1]}&ratings[gte]=${rating}`;
     if (category) {
       link += `&category=${category}`;
     }
@@ -27,7 +31,9 @@ export const getAdminProduct = createAsyncThunk(
   "products/getAdminProduct",
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("/api/v1/admin/products");
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/v1/admin/products`
+      );
       return data.products;
     } catch (error) {
       return rejectWithValue(error);

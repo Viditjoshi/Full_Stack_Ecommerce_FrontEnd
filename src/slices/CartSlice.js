@@ -5,7 +5,9 @@ export const cartThnk = createAsyncThunk(
   "cart/cartThnk",
   async ({ id, quantity }) => {
     try {
-      const response = await axios.get(`/api/v1/product/${id}`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/v1/product/${id}`
+      );
       const product = response.data.product; // Ensure this is the correct path
       return {
         id: product._id,

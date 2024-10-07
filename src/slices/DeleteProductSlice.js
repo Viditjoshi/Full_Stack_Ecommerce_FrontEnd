@@ -5,7 +5,9 @@ export const DeleteProduct = createAsyncThunk(
   "DeleteProductSlice/DeleteProduct",
   async ({ id }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.delete(`/api/v1/admin/product/${id}`);
+      const { data } = await axios.delete(
+        `${import.meta.env.VITE_API_URL}/api/v1/admin/product/${id}`
+      );
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

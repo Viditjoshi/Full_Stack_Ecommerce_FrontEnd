@@ -10,7 +10,11 @@ export const createOrder = createAsyncThunk(
           "content-type": "application/json",
         },
       };
-      const { data } = await axios.post("/api/v1/order/new", order, config);
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/v1/order/new`,
+        order,
+        config
+      );
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

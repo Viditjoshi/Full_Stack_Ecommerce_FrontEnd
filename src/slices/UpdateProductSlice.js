@@ -9,7 +9,7 @@ export const UpdateProductThank = createAsyncThunk(
         headers: { "Content-Type": "application/json" },
       };
       const { data } = await axios.put(
-        `/api/v1/admin/product/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/v1/admin/product/${id}`,
         myForm,
         config
       );

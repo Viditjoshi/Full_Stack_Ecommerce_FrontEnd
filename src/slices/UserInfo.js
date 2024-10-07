@@ -5,7 +5,9 @@ export const GetUsersDetails = createAsyncThunk(
   "UserDetail/GetUsersDetails",
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("/api/v1/admin/users");
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/v1/admin/users`
+      );
       return data;
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || error.message);
@@ -17,7 +19,9 @@ export const GetSingleUserDetail = createAsyncThunk(
   "UserDetail/GetSingleUserDetail",
   async ({ id }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`/api/v1/admin/user/${id}`);
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/v1/admin/user/${id}`
+      );
       return data;
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || error.message);
@@ -29,7 +33,9 @@ export const DeleteUser = createAsyncThunk(
   "UserDetail/DeleteUser",
   async ({ id }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.delete(`/api/v1/admin/user/${id}`);
+      const { data } = await axios.delete(
+        `${import.meta.env.VITE_API_URL}/api/v1/admin/user/${id}`
+      );
       return data;
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || error.message);
@@ -47,7 +53,7 @@ export const UpdateUserRole = createAsyncThunk(
         },
       };
       const { data } = await axios.put(
-        `/api/v1/admin/user/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/v1/admin/user/${id}`,
         myForm,
         config
       );

@@ -10,7 +10,7 @@ export const CrateProduct = createAsyncThunk(
       };
       console.log(myForm);
       const data = await axios.post(
-        `/api/v1/admin/product/new`,
+        `${import.meta.env.VITE_API_URL}/api/v1/admin/product/new`,
         myForm,
         config
       );

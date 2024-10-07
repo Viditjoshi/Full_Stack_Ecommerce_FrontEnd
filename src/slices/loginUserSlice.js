@@ -13,7 +13,10 @@ export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (userCredentials, { rejectWithValue }) => {
     try {
-      const response = await axios.post("/api/v1/login", userCredentials);
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/v1/login`,
+        userCredentials
+      );
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -26,7 +29,10 @@ export const registerUser = createAsyncThunk(
   "auth/registerUser",
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await axios.post("/api/v1/register", userData);
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/v1/register`,
+        userData
+      );
       return response.data;
     } catch (err) {
       return rejectWithValue(err.response.data.message);
@@ -37,7 +43,9 @@ export const registerUser = createAsyncThunk(
 //logout user
 export const logoutUser = createAsyncThunk("auth/logoutUser", async () => {
   try {
-    const response = await axios.get("/api/v1/logout");
+    const response = await axios.get(
+      `${import.meta.env.VITE_API_URL}/api/v1/logout`
+    );
     return response.data;
   } catch (err) {
     return err.response.data.message || "Something went wrong";
@@ -48,9 +56,12 @@ export const loadUser = createAsyncThunk(
   "auth/loadUser",
   async (_, rejectWithValue) => {
     try {
-      const response = await axios.get("/api/v1/me", {
-        withCredentials: true, // Ensure cookies are included in the request
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/v1/me`,
+        {
+          withCredentials: true, // Ensure cookies are included in the request
+        }
+      );
       return response.data; // Assuming the API returns user data here
     } catch (err) {
       // If there is an error, reject with error message

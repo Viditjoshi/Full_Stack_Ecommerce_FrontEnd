@@ -6,10 +6,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api/v1": {
-        target: "https://ecommerce-jewellery-site-backend.onrender.com/", // Backend API server
+      "/api": {
+        target: "https://ecommerce-jewellery-site-backend.onrender.com", // Your Render backend URL
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api\/v1/, "/api/v1/"),
+        secure: true, // Set to true if you're using HTTPS
       },
     },
   },

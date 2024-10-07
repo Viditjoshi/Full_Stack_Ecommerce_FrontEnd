@@ -3,7 +3,9 @@ import axios from "axios";
 export const getProductDetail = createAsyncThunk(
   "product/getProductDetail",
   async (id) => {
-    const response = await fetch(`/api/v1/product/${id}`);
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/v1/product/${id}`
+    );
     const data = await response.json();
     return data.product;
   }
@@ -15,7 +17,11 @@ export const NewReview = createAsyncThunk(
       const config = {
         headers: { "Content-Type": "application/json" },
       };
-      const data = await axios.put(`/api/v1/review`, myForm, config);
+      const data = await axios.put(
+        `${import.meta.env.VITE_API_URL}/api/v1/review`,
+        myForm,
+        config
+      );
       return data;
     } catch (err) {
       return rejectWithValue(err);

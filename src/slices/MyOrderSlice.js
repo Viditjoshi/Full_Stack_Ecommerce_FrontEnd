@@ -5,7 +5,9 @@ export const OrderDetails = createAsyncThunk(
   "MyOrderSlice/OrderDetails",
   async ({ id }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`/api/v1/order/${id}`);
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/v1/order/${id}`
+      );
       return data.order; // Adjust this depending on your API response structure
     } catch (error) {
       return rejectWithValue(error.response.data.message || error.message);
@@ -17,7 +19,9 @@ export const myOrder = createAsyncThunk(
   "MyOrderSlice/myOrder",
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("/api/v1/orders/me");
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/v1/orders/me`
+      );
       return data.orders; // Adjust this depending on your API response structure
     } catch (error) {
       return rejectWithValue(error.response.data.message || error.message);
@@ -29,7 +33,9 @@ export const GetAllOrderList = createAsyncThunk(
   "MyOrderSlice/GetAllOrderList",
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("/api/v1/admin/orders");
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/v1/admin/orders`
+      );
       return data;
     } catch (error) {
       return rejectWithValue(
@@ -50,7 +56,7 @@ export const UpdateOrder = createAsyncThunk(
         },
       };
       const { data } = await axios.put(
-        `/api/v1/admin/order/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/v1/admin/order/${id}`,
         myForm,
         config
       );
@@ -66,7 +72,9 @@ export const DeleteOrder = createAsyncThunk(
   "MyOrderSlice/DeleteOrder",
   async ({ id }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.delete(`/api/v1/admin/order/${id}`);
+      const { data } = await axios.delete(
+        `${import.meta.env.VITE_API_URL}/api/v1/admin/order/${id}`
+      );
       return data;
     } catch (error) {
       return rejectWithValue(

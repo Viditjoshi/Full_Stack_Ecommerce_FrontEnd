@@ -6,11 +6,15 @@ export const updateProfile = createAsyncThunk(
   "profile/updateProfile",
   async (formData, { rejectWithValue }) => {
     try {
-      const { data } = await axios.put("/api/v1/me/update", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const { data } = await axios.put(
+        `${import.meta.env.VITE_API_URL}/api/v1/me/update`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -21,11 +25,15 @@ export const updatePassword = createAsyncThunk(
   "profile/updatePassword",
   async (formData, { rejectWithValue }) => {
     try {
-      const { data } = await axios.put(`/api/v1/password/update`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const { data } = await axios.put(
+        `${import.meta.env.VITE_API_URL}/api/v1/password/update`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -36,7 +44,10 @@ export const ForgotPass = createAsyncThunk(
   "profile/ForgotPass",
   async (formData, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post(`/api/v1/password/forgot`, formData);
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/v1/password/forgot`,
+        formData
+      );
       return data.message;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -49,7 +60,7 @@ export const resetPass = createAsyncThunk(
     try {
       const config = { headers: { "Content-Type": "application/json" } };
       const { data } = await axios.put(
-        ` /api/v1/password/reset/${token}`,
+        `${import.meta.env.VITE_API_URL}/api/v1/password/reset/${token}`,
         formData,
         config
       );
