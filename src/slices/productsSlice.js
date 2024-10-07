@@ -11,7 +11,7 @@ export const fetchProducts = createAsyncThunk(
     rating = 0,
   }) => {
     // Construct the URL based on provided parameters
-    let link = `https://ecommerce-jewellery-site-backend.onrender.com/api/v1/products?keyword=${keyword}&page=${currentpage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${rating}`;
+    let link = `/api/v1/products?keyword=${keyword}&page=${currentpage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${rating}`;
     if (category) {
       link += `&category=${category}`;
     }
