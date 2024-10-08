@@ -91,8 +91,8 @@ const ProductSlider = () => {
                     <div className="text-red-500 text-center">Error loading products: {error}</div>
                 ) : (
                     products.map((product) => (
-                        <SwiperSlide key={product._id} className="bg-none  ">
-                            <div className=''>
+                        <SwiperSlide key={product._id} className=" bg-transparent">
+                            <div className='bg-transparent'>
 
                                 <ProductSliderInrCmp product={product} />
                             </div>
