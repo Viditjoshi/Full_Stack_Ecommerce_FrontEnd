@@ -5,7 +5,7 @@ const ProductSliderInrCmp = ({ product }) => {
     const { name, price, images, category } = product;
 
     return (
-        <div className="rounded-lg bg-transparent h-[300px] flex justify-center transition duration-300 ease-in-out hover:shadow-xl">
+        <div className="rounded-lg bg-gradient-to-r from-custom-dark-teal to-custom-deep-green h-[300px] flex justify-center transition duration-300 ease-in-out hover:shadow-xl">
             <Link to={`/product/${product._id}`} className="block">
                 <div className="w-[200px] h-[200px] overflow-hidden rounded-lg  relative">
                     <img
