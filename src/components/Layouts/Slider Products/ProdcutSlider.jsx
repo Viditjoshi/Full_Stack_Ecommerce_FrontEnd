@@ -1,9 +1,5 @@
 import React, { useEffect } from 'react';
 import Loader from '../../Loader/Loader';
-import img4 from '../../../image/img4.png'
-import img2 from '../../../image/img2.png'
-import img3 from '../../../image/img3.png'
-import img1 from '../../../image/Screenshot 2024-09-02 162204.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../../slices/productsSlice';
 import toast from 'react-hot-toast';
@@ -17,7 +13,6 @@ import 'swiper/css/effect-fade';
 
 // import required modules
 import { EffectCoverflow, Autoplay, EffectFade } from 'swiper/modules';
-import SingleOrderDetail from '../../Order/SingeOrderDetail';
 import ProductSliderInrCmp from './ProductSliderInrCmp';
 
 const ProductSlider = () => {
@@ -96,7 +91,7 @@ const ProductSlider = () => {
                     <div className="text-red-500 text-center">Error loading products: {error}</div>
                 ) : (
                     products.map((product) => (
-                        <SwiperSlide key={product._id} className="bg-transparent  ">
+                        <SwiperSlide key={product._id} className="bg-none  ">
                             <div className=''>
 
                                 <ProductSliderInrCmp product={product} />
