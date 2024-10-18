@@ -8,10 +8,9 @@ import { AiFillBank } from "react-icons/ai";
 import CheckoutSteps from './CheckoutSteps';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-
-const Country = lazy(() => import("country-state-city").then(module => ({ default: module.Country })));
-const State = lazy(() => import("country-state-city").then(module => ({ default: module.State })));
-const City = lazy(() => import("country-state-city").then(module => ({ default: module.City })));
+import { Country } from 'country-state-city';
+import { City } from 'country-state-city';
+import { State } from 'country-state-city';
 
 const Shipping = () => {
     const dispatch = useDispatch();
