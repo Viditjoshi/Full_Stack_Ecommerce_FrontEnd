@@ -1,8 +1,59 @@
-# React + Vite
+🛒 Full Stack E-Commerce Website - Frontend
+A responsive and dynamic E-commerce frontend built using React.js, featuring a modern UI/UX, state management with Redux, and Tailwind CSS for styling. This frontend connects with the backend API to provide a seamless shopping experience.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+⚙️ Frontend Tech Stack
+React.js: Component-based frontend library
+Redux: State management for handling global state
+React Router: For managing navigation and routes
+Tailwind CSS: Utility-first CSS framework for responsive design
+Axios: For making API requests to the backend
+React Icons: Icon library for a modern look
+Context API: For theme (light/dark) toggling
+Framer Motion: For animations and interactive UI
 
-Currently, two official plugins are available:
+✨ Frontend Features
+  🔐 Authentication Pages:
+  Login & Register pages connected to the backend API
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🛍️ Product Pages:
+  Browse Products
+  Search Products
+  Product Details
+
+🛒 Cart Functionality:
+  Add to Cart
+  View Cart Items
+  Update Cart Quantities
+  Remove Items from Cart
+
+💰 Checkout Process:
+  Secure Checkout
+  Payment Gateway Integration (Planned)
+
+🖥️ Responsive Design:
+  Optimized for mobile, tablet, and desktop devices
+
+
+📂 Project Structure
+
+frontend/  
+├── public/  
+├── src/  
+│   ├── components/  
+│   ├── pages/  
+│   ├── redux/  
+│   ├── utils/  
+│   ├── App.js  
+│   └── index.js  
+
+🚀 How to Run the Frontend Locally
+  Clone the repository:
+  git clone https://github.com/Viditjoshi/Full_Stack_Ecommerce_FrontEnd.git
+  cd ecommerce-project/frontend
+
+Install dependencies:
+
+  npm install
+
+Start the development server:
+  npm run dev
