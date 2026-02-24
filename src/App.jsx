@@ -57,7 +57,7 @@ const App = () => {
   useEffect(() => {
     WebFont.load({
       google: {
-        families: ['Roboto', 'Droid Sans', 'Chilanka'],
+        families: ['Cormorant Garamond:300,400,500,600,700', 'Inter:100,200,300,400,500,600,700,800,900'],
       },
     });
     setTimeout(() => {
@@ -70,7 +70,7 @@ const App = () => {
   // window.addEventListener("contextmenu", (e) => e.preventDefault());
 
   return (
-    <div className='bg-gradient-to-r from-custom-dark-teal to-custom-deep-green'>
+    <div className='bg-warm-white min-h-screen font-sans'>
       {loading ? (
         <Loader />
       ) : (

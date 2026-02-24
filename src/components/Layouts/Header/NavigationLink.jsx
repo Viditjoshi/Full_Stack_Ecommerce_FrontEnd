@@ -1,129 +1,114 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const NavigationLink = () => {
+const NavigationLink = ({ scrolled, isHome }) => {
     const links = [
         {
-            name: "MAN",
+            name: "Men",
             submenu: true,
             sublinks: [{
-                Head: "Spcial Chains",
+                Head: "Chains",
                 sublink: [
                     { name: 'Gold Chain', link: '/products/Gold Chain' },
                     { name: 'Black Chain', link: '/products/Black Chain' },
-                    { name: 'Sliver Chain', link: '/products/Sliver Chain' },
+                    { name: 'Silver Chain', link: '/products/Sliver Chain' },
                 ]
             },
             {
-                Head: "Spcial Rings",
+                Head: "Rings",
                 sublink: [
                     { name: 'Gold Rings', link: '/products/Gold Rings' },
                     { name: 'Black Rings', link: '/products/Black Rings' },
-                    { name: 'Sliver Rings', link: '/products/Sliver Rings' },
+                    { name: 'Silver Rings', link: '/products/Sliver Rings' },
                 ]
             },
             {
-                Head: "Spcial Hand Bracelet",
+                Head: "Bracelets",
                 sublink: [
                     { name: 'Gold Bracelet', link: '/products' },
-                    { name: 'Sliver Bracelet', link: '/products' },
+                    { name: 'Silver Bracelet', link: '/products' },
                 ]
             },
             {
-                Head: "Spcial Hand Bracelet",
-                sublink: [
-                    { name: 'Gold Bracelet', link: '/products' },
-                    { name: 'Sliver Bracelet', link: '/products' },
-                ]
-            },
-            {
-                Head: "Raksha Bandhan Rakhi",
+                Head: "Rakhi Collection",
                 sublink: [
                     { name: 'Gold Rakhi', link: '/products' },
-                    { name: 'Sliver Rakhi', link: '/products' },
+                    { name: 'Silver Rakhi', link: '/products' },
                 ]
             }
             ]
         },
         {
-            name: "WOMEN",
+            name: "Women",
             submenu: true,
             sublinks: [{
-                Head: "Spcial Dimend Set",
+                Head: "Diamond Sets",
                 sublink: [
                     { name: 'Gold Set', link: '/' },
-                    { name: 'Sliver Set', link: '/' },
+                    { name: 'Silver Set', link: '/' },
                     { name: 'Antique Set', link: '/' },
-
                 ]
             },
             {
-                Head: "Spcial Rings",
+                Head: "Rings",
                 sublink: [
                     { name: 'Gold Rings', link: '/' },
                     { name: 'Black Rings', link: '/' },
-                    { name: 'Sliver Rings', link: '/' },
+                    { name: 'Silver Rings', link: '/' },
                 ]
             },
             {
-                Head: "Spcial Hand Bracelet",
+                Head: "Bracelets",
                 sublink: [
                     { name: 'Gold Bracelet', link: '/' },
-                    { name: 'Sliver Bracelet', link: '/' },
+                    { name: 'Silver Bracelet', link: '/' },
                 ]
             },
             {
-                Head: "Spcial Hand Bracelet",
+                Head: "Earrings",
                 sublink: [
-                    { name: 'Gold Bracelet', link: '/' },
-                    { name: 'Sliver Bracelet', link: '/' },
-                ]
-            },
-            {
-                Head: "Raksha Bandhan Rakhi",
-                sublink: [
-                    { name: 'Gold Rakhi', link: '/' },
-                    { name: 'Sliver Rakhi', link: '/' },
+                    { name: 'Gold Earrings', link: '/' },
+                    { name: 'Diamond Earrings', link: '/' },
                 ]
             }
             ]
-        }, //{ name: "PAGES" }
+        },
     ]
 
     return (
         <>
-            {links.map((links) => (
-                <div className='z-20'>
-                    <div className='cursor-pointer group '>
-                        <h1 className='hover:text-slate-300'>{links.name}</h1>
-                        <div></div>
-                        {links.submenu && (
-                            <div>
-                                <div className=' absolute top-[3.9em] hidden delay-500 group-hover:block hover:block '>
-                                    <div className='pb-2'>
-                                        <div className='w-5 h-5 left-3 absolute bg-gray-800 rotate-45'></div>
-                                    </div>
-                                    <div className='bg-gray-800 p-3.5 grid grid-cols-3 gap-10 '>
-                                        {
-                                            links.sublinks?.map((mysublinks) => (
-                                                <div>
-                                                    <h1 className='text-lg font-semibold'>{mysublinks.Head}</h1>
-                                                    {mysublinks.sublink.map(slink => (
-                                                        <li className='text-sm text-white my-2.5 list-none '>
-                                                            <Link to={slink.link} className='hover:text-slate-300'>{slink.name}</Link>
-                                                        </li>
-                                                    ))}
-                                                </div>
-                                            )
-                                            )}
-                                    </div>
+            {links.map((link, idx) => (
+                <div key={idx} className='relative z-20'>
+                    <div className='cursor-pointer group'>
+                        <h1 className='hover:opacity-70 transition-opacity pb-1'>{link.name}</h1>
+                        {link.submenu && (
+                            <div className='absolute top-full left-1/2 -translate-x-1/2 pt-4 hidden group-hover:block hover:block'>
+                                <div className='bg-white rounded-lg shadow-xl border border-cream p-6 grid grid-cols-2 gap-x-10 gap-y-6 min-w-[400px]'>
+                                    {link.sublinks?.map((mysublinks, subIdx) => (
+                                        <div key={subIdx}>
+                                            <h2 className='text-xs font-sans font-semibold tracking-[0.15em] uppercase text-gold mb-3'>
+                                                {mysublinks.Head}
+                                            </h2>
+                                            <ul className="space-y-2">
+                                                {mysublinks.sublink.map((slink, sIdx) => (
+                                                    <li key={sIdx}>
+                                                        <Link 
+                                                            to={slink.link} 
+                                                            className='text-sm font-sans text-charcoal hover:text-gold transition-colors duration-200'
+                                                        >
+                                                            {slink.name}
+                                                        </Link>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         )}
                     </div>
                 </div>
-            ))
-            }
+            ))}
         </>
     )
 }
