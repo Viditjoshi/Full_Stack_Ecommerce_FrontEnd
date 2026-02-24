@@ -7,82 +7,7 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
-.pagination {
-  display: flex;
-  justify-content: center;
-  padding: 0%;
-}
-.page-item {
-  list-style: none;
-  background-color: white;
-  border: 1px solid black;
-  padding: 10px 25px;
-  margin-bottom: 3rem;
-  cursor: pointer;
-}
-.page-item:first-child {
-  border-radius: 5px 0 0 5px;
-}
-.page-item:last-child {
-  border-radius: 0 5px 5px 0;
-}
-.page-link {
-  text-decoration: none;
-  font: 300 1vmax "Roboto";
-  color: rgb(80, 80, 80);
-  transition: all 0.3s;
-}
-.page-item:hover {
-  background-color: rgb(230, 230, 230);
-}
-.page-item:hover .page-link {
-  color: rgb(80, 80, 80);
-}
-.pageItemActive {
-  background-color: tomato;
-}
-.pageLinkActive {
-  color: white;
-}
-@media screen and (max-width: 600px) {
-  .pagination {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-  }
-  .page-item {
-    list-style: none;
-    background-color: white;
-    border: 1px solid black;
-    padding: 5px 15px;
-    margin-bottom: 3rem;
-    cursor: pointer;
-  }
-  .page-item:first-child {
-    border-radius: 5px 0 0 5px;
-  }
-  .page-item:last-child {
-    border-radius: 0 5px 5px 0;
-  }
-  .page-link {
-    text-decoration: none;
-    font: 300 1vmax "Roboto";
-    color: rgb(80, 80, 80);
-    transition: all 0.3s;
-  }
-  .page-item:hover {
-    background-color: rgb(230, 230, 230);
-  }
-  .page-item:hover .page-link {
-    color: rgb(80, 80, 80);
-  }
-  .pageItemActive {
-    background-color: tomato;
-  }
-  .pageLinkActive {
-    color: white;
-  }
-}
+
 .container {
   max-width: 1200px;
 }
@@ -114,9 +39,11 @@ input[type="number"] {
     font-size: 1rem;
   }
 }
+
 option {
-  color: white;
-  font-size: 18px;
-  padding: 20px;
-  background-color: #235347;
+  color: #1A1A1A;
+  font-size: 16px;
+  padding: 12px;
+  font-family: 'Inter', sans-serif;
+  background-color: #FAF8F5;
 }
